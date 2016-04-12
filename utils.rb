@@ -37,6 +37,12 @@ def transition_probabilities counts
   end
 end
 
+def probability_sort transition_hash
+  transition_hash.each do |key, value|
+    transition_hash[key] = value.sort_by{|k, v| v}.to_h
+  end
+end
+
 def write_yaml target, data
   serialized_object = YAML::dump(data)
   File.open(target, "w") do |file|

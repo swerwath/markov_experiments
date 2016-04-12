@@ -9,6 +9,8 @@ transition_hash = transition_counts words # Create hash with raw counts
 puts "Finished counting, found #{transition_hash.count} unique words..."
 transition_probabilities transition_hash # Calculate transition probabilities
 puts "Finished calculatating probability hash"
+probability_sort transition_hash
+puts "Finished sorting probability hash"
 
 # Create dump file name from original dataset name
 # something/othello.txt => analyzed_data/othello.yaml
