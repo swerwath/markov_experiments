@@ -49,3 +49,7 @@ def write_yaml target, data
     file.puts serialized_object
   end
 end
+
+def load_yaml target
+  YAML.load_file(target)
+end
