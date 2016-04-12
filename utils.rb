@@ -21,3 +21,16 @@ def transition_counts words
   end
   counts
 end
+
+
+def transition_probabilities counts
+  counts.each do |word, count_hash|
+    total = 0.0
+    count_hash.values.each do |i|
+      total += i
+    end
+    count_hash.each do |word, value|
+      count_hash[word] = value / total
+    end
+  end
+end
