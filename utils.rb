@@ -1,3 +1,5 @@
+require "yaml"
+
 =begin
 Takes an array of words and returns a hash of string => hash,
 where the inner hash is of string => integer. These hashes represent
@@ -32,5 +34,12 @@ def transition_probabilities counts
     count_hash.each do |word, value|
       count_hash[word] = value / total
     end
+  end
+end
+
+def write_yaml target, data
+  serialized_object = YAML::dump(data)
+  File.open(target, "w") do |file|
+    file.puts serialized_object
   end
 end

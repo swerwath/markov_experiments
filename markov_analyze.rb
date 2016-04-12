@@ -1,5 +1,4 @@
 require_relative 'utils'
-require "yaml"
 
 # Read in our training text
 text_file = ARGV.first
@@ -19,9 +18,5 @@ end
 target_file_path = "analyzed_data/"+target_file_path+".yaml"
 
 puts "Writing data to #{target_file_path}"
-serialized_object = YAML::dump(transition_hash)
-File.open(target_file_path, "w") do |file|
-  file.puts serialized_object
-end
-
+write_yaml target_file_path, transition_hash
 puts "Done!"
