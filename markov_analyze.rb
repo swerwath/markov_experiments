@@ -3,11 +3,11 @@ require_relative 'utils'
 # Read in our training text
 text_file = ARGV[0]
 chunk_size = ARGV[1].to_i
-words = File.read(text_file).scan(/.{1,#{chunk_size}}/)
-words = words.map{ |w| w.downcase }
+chunks = File.read(text_file).scan(/.{1,#{chunk_size}}/)
+chunks = chunks.map{ |w| w.downcase }
 
-transition_hash = transition_counts words # Create hash with raw counts
-puts "Finished counting, found #{transition_hash.count} unique words..."
+transition_hash = transition_counts chunks # Create hash with raw counts
+puts "Finished counting, found #{transition_hash.count} unique chunks..."
 transition_probabilities transition_hash # Calculate transition probabilities
 puts "Finished calculatating probability hash"
 probability_sort transition_hash
