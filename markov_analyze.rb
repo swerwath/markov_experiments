@@ -1,8 +1,9 @@
 require_relative 'utils'
 
 # Read in our training text
-text_file = ARGV.first
-words = File.read(text_file).scan(/.{1,#{4}}/)
+text_file = ARGV[0]
+chunk_size = ARGV[1].to_i
+words = File.read(text_file).scan(/.{1,#{chunk_size}}/)
 words = words.map{ |w| w.downcase }
 
 transition_hash = transition_counts words # Create hash with raw counts
