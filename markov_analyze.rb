@@ -2,7 +2,7 @@ require_relative 'utils'
 
 # Read in our training text
 text_file = ARGV.first
-words = File.read(text_file).scan(/\w+/)
+words = File.read(text_file).scan(/.{1,#{4}}/)
 words = words.map{ |w| w.downcase }
 
 transition_hash = transition_counts words # Create hash with raw counts
